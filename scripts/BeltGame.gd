@@ -44,17 +44,17 @@ func _unhandled_key_input(event):
 		return
 		
 	if queue.size() == 0:
-		_end_game()
+		is_game_over = true
 		return
 	
 	match queue.front().get_meta("type"):
 		"right": 
 			if !event.is_action_pressed("right"):
-				_end_game()
+				is_game_over = true
 				return
 		"left":
 			if !event.is_action_pressed("left"):
-				_end_game()
+				is_game_over = true
 				return
 	_step()
 	
@@ -62,7 +62,4 @@ func _step():
 	target_position += Vector2.LEFT * STEP_SIZE
 	var instance = queue.pop_front()
 	instance.queue_free()
-	
-func _end_game():
-	is_game_over = true
 
