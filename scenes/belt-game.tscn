@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://d2n0vd38d2rxf"]
+
+[ext_resource type="Script" path="res://scripts/BeltGame.gd" id="1_rvbhf"]
+[ext_resource type="Texture2D" uid="uid://nml0c4026qc6" path="res://sprites/#2 - Transparent Icons & Drop Shadow.png" id="2_212dp"]
+
+[node name="Root" type="Node2D"]
+
+[node name="Belt" type="Node2D" parent="."]
+script = ExtResource("1_rvbhf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(100, 324)
+texture = ExtResource("2_212dp")
+region_enabled = true
+region_rect = Rect2(32, 160, 32, 33)
