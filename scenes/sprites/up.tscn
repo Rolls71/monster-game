@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://cfjnsdqd351ox"]
+
+[ext_resource type="Texture2D" uid="uid://nml0c4026qc6" path="res://sprites/#2 - Transparent Icons & Drop Shadow.png" id="1_kgj6d"]
+
+[node name="Up" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_kgj6d")
+region_enabled = true
+region_rect = Rect2(0, 64, 32, 32)

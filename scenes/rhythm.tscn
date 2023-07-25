@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://7e7xmoykxmvb"]
+
+[ext_resource type="Script" path="res://scripts/MinigameHandler.gd" id="1_7ti8m"]
+[ext_resource type="Script" path="res://scenes/RhythmGame.gd" id="2_teymv"]
+
+[node name="MinigameHandler" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7ti8m")
+
+[node name="Minigame" type="Node2D" parent="."]
+script = ExtResource("2_teymv")
+
+[node name="TimeBar" type="ProgressBar" parent="."]
+offset_left = 264.529
+offset_top = 530.394
+offset_right = 692.529
+offset_bottom = 603.394
+scale = Vector2(1.7629, 0.599667)
+show_percentage = false
+
+[node name="ScoreText" type="Label" parent="."]
+offset_left = 1331.08
+offset_top = 813.437
+offset_right = 1371.08
+offset_bottom = 836.437
