@@ -64,7 +64,10 @@ func end_game(is_win):
 func _on_rhythm_input(input_chord):
 	var queue_chord = queue.front().get_meta("chord")
 	if len(queue_chord) != len(input_chord):
-		score -= len(input_chord)
+		if score > len(input_chord):
+			score -= len(input_chord)
+		else:
+			score = 0
 		print("length doesnt match")
 		return
 	for i in range(len(queue_chord)):
