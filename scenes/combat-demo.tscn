@@ -1,15 +1,17 @@
 [gd_scene load_steps=2 format=3 uid="uid://bqpnv3npabcfd"]
 
-[ext_resource type="Script" path="res://scripts/DemoCombat.gd" id="1_sa2qp"]
+[ext_resource type="Script" path="res://scripts/CombatDemo.gd" id="1_shc0v"]
 
-[node name="DemoCombat" type="Control"]
+[node name="CombatDemo" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_right = -1152.0
 offset_bottom = -648.0
-script = ExtResource("1_sa2qp")
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_shc0v")
 
 [node name="CombatUI" type="Control" parent="."]
 anchors_preset = 0
@@ -18,10 +20,10 @@ offset_bottom = 40.0
 
 [node name="PlayerCharacters" type="ItemList" parent="CombatUI"]
 layout_mode = 0
-offset_left = 82.0
-offset_top = 374.0
-offset_right = 296.0
-offset_bottom = 438.0
+offset_left = 98.0
+offset_top = 362.0
+offset_right = 312.0
+offset_bottom = 426.0
 item_count = 2
 item_0/text = "Ghost"
 item_1/text = "Fuzzball"

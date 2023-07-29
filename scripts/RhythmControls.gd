@@ -21,7 +21,7 @@ func _ready():
 		"right": [right, 0],
 		}
 	
-func _physics_process(delta):
+func _physics_process(_delta):
 	var flag = false
 	for direction in DIRECTIONS:
 		if controls[direction][1] == 2:

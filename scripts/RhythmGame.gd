@@ -17,6 +17,8 @@ const ARROW_ROWS = {
 	"right": ARROW_GAP*1.5,
 }
 
+signal game_ended
+
 var is_game_over = false
 var is_crit = false
 var score = 0
@@ -56,28 +58,23 @@ func end_game(is_win):
 		is_crit = true
 		score *= CRIT_MULTIPLIER
 	score = int(score)
+	game_ended.emit(score)
 	return score	
 
 func _on_rhythm_input(input_chord):
 	var queue_chord = queue.front().get_meta("chord")
-	print("input: "+str(input_chord))
-	print("queue: "+str(queue_chord.map(func(arrow): return arrow.get_meta("arrow_type"))))
 	if len(queue_chord) != len(input_chord):
 		score -= len(input_chord)
 		print("length doesnt match")
 		return
 	for i in range(len(queue_chord)):
 		if queue_chord[i].get_meta("arrow_type") != input_chord[i]:
-			end_game(false)
-			print(str(queue_chord[i].get_meta("arrow_type")) + " doesnt match " +str(input_chord[i]))
 			return
 	
 	if len(queue) == 0:
-		print("queue length is " + str(len(queue)))
 		end_game(true)
 	_step(len(input_chord))
-	if len(queue) == 0:
-		print("queue length is " + str(len(queue)))		
+	if len(queue) == 0:	
 		end_game(true)
 
 func _ready():

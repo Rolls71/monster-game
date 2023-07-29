@@ -9,6 +9,8 @@ const MAX_QUEUE = 60
 
 const CRIT_MULTIPLIER = 1.2
 
+signal game_ended
+
 var is_game_over = false
 var is_crit = false
 var score = 0
@@ -30,6 +32,7 @@ func end_game(is_win):
 		is_crit = true
 		score *= CRIT_MULTIPLIER
 	score = int(score)
+	game_ended.emit(score)
 	return score
 
 func _ready():
