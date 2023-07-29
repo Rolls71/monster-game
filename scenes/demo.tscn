@@ -1,7 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://bqpnv3npabcfd"]
-
-[ext_resource type="PackedScene" uid="uid://d2n0vd38d2rxf" path="res://scenes/belt-game.tscn" id="1_u6j31"]
-
-[node name="demo" type="Node2D"]
-
-[node name="Belt" parent="." instance=ExtResource("1_u6j31")]
