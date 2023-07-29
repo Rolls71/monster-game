@@ -46,5 +46,13 @@ offset_right = 571.0
 offset_bottom = 377.0
 text = "FIGHT!"
 
+[node name="Label" type="Label" parent="CombatUI"]
+layout_mode = 0
+offset_left = 487.0
+offset_top = 298.0
+offset_right = 527.0
+offset_bottom = 321.0
+text = "Score: "
+
 [connection signal="item_activated" from="CombatUI/PlayerCharacters" to="." method="_on_player_characters_item_activated"]
 [connection signal="button_down" from="CombatUI/Fight" to="." method="_on_fight_button_down"]

@@ -59,7 +59,7 @@ func end_game(is_win):
 		score *= CRIT_MULTIPLIER
 	score = int(score)
 	game_ended.emit(score)
-	return score	
+	return score
 
 func _on_rhythm_input(input_chord):
 	var queue_chord = queue.front().get_meta("chord")
@@ -68,7 +68,6 @@ func _on_rhythm_input(input_chord):
 			score -= len(input_chord)
 		else:
 			score = 0
-		print("length doesnt match")
 		return
 	for i in range(len(queue_chord)):
 		if queue_chord[i].get_meta("arrow_type") != input_chord[i]:
