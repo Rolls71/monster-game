@@ -26,6 +26,8 @@ var right = preload("res://scenes/sprites/right.tscn")
 var down = preload("res://scenes/sprites/down.tscn")
 var left = preload("res://scenes/sprites/left.tscn")
 
+var controls
+
 var arrows = [up, right, down, left]
 var chords = [
 	[up],
@@ -54,19 +56,46 @@ func end_game(is_win):
 		is_crit = true
 		score *= CRIT_MULTIPLIER
 	score = int(score)
-	return score
+	return score	
 
-func send_chord(chord):
-	pass
+func _on_rhythm_input(input_chord):
+	var queue_chord = queue.front().get_meta("chord")
+	print("input: "+str(input_chord))
+	print("queue: "+str(queue_chord.map(func(arrow): return arrow.get_meta("arrow_type"))))
+	if len(queue_chord) != len(input_chord):
+		score -= len(input_chord)
+		print("length doesnt match")
+		return
+	for i in range(len(queue_chord)):
+		if queue_chord[i].get_meta("arrow_type") != input_chord[i]:
+			end_game(false)
+			print(str(queue_chord[i].get_meta("arrow_type")) + " doesnt match " +str(input_chord[i]))
+			return
 	
+	if len(queue) == 0:
+		print("queue length is " + str(len(queue)))
+		end_game(true)
+	_step(len(input_chord))
+	if len(queue) == 0:
+		print("queue length is " + str(len(queue)))		
+		end_game(true)
 
 func _ready():
 	set_meta("type", "minigame")
 	set_meta("minigame-type", "rhythm")
-	add_user_signal("new_chord", )
+	
+	up.set_meta("arrow_type", "up")
+	down.set_meta("arrow_type", "down")
+	left.set_meta("arrow_type", "left")
+	right.set_meta("arrow_type", "right")
+	
+	controls = get_parent().get_node("Controls")
+	controls.rhythm_input.connect(_on_rhythm_input)
+	
 	for i in randi_range(MIN_QUEUE, MAX_QUEUE):
 		var rand_int = randi()%chords.size()
 		var chord = Node2D.new()
+		chord.set_meta("chord", chords[rand_int]) 
 		for scene in chords[rand_int]:
 			var child = scene.instantiate()
 			child.position = Vector2(0, ARROW_ROWS[child.name.to_lower()])
@@ -83,8 +112,8 @@ func _process(delta):
 	position = lerp(position, target_position, LERP_RATE*delta)
 	return
 
-func _step():
+func _step(points):
 	target_position += Vector2.LEFT * STEP_SIZE
 	var instance = queue.pop_front()
 	instance.queue_free()
-	score += 1
+	score += points

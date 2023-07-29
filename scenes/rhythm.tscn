@@ -1,9 +1,9 @@
 [gd_scene load_steps=8 format=3 uid="uid://7e7xmoykxmvb"]
 
 [ext_resource type="Script" path="res://scripts/MinigameHandler.gd" id="1_7ti8m"]
-[ext_resource type="Script" path="res://scenes/RhythmGame.gd" id="2_teymv"]
+[ext_resource type="Script" path="res://RhythmGame.gd" id="2_mvri0"]
 [ext_resource type="PackedScene" uid="uid://cfjnsdqd351ox" path="res://scenes/sprites/up.tscn" id="3_5upoj"]
-[ext_resource type="Script" path="res://scenes/RhythmControls.gd" id="3_mqvhl"]
+[ext_resource type="Script" path="res://scripts/RhythmControls.gd" id="3_lrhfw"]
 [ext_resource type="PackedScene" uid="uid://bn2hvbb0lx1ud" path="res://scenes/sprites/down.tscn" id="4_xlalj"]
 [ext_resource type="PackedScene" uid="uid://dl525bqgpeac2" path="res://scenes/sprites/left.tscn" id="5_u0srt"]
 [ext_resource type="PackedScene" uid="uid://t7hq1udtvkd7" path="res://scenes/sprites/right.tscn" id="6_fwgii"]
@@ -17,28 +17,9 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_7ti8m")
 
-[node name="Minigame" type="Node2D" parent="."]
-script = ExtResource("2_teymv")
-
-[node name="TimeBar" type="ProgressBar" parent="."]
-layout_mode = 0
-offset_left = 264.529
-offset_top = 530.394
-offset_right = 692.529
-offset_bottom = 603.394
-scale = Vector2(1.7629, 0.599667)
-show_percentage = false
-
-[node name="ScoreText" type="Label" parent="."]
-layout_mode = 0
-offset_left = 1331.08
-offset_top = 813.437
-offset_right = 1371.08
-offset_bottom = 836.437
-
 [node name="Controls" type="Node2D" parent="."]
 position = Vector2(100, 324)
-script = ExtResource("3_mqvhl")
+script = ExtResource("3_lrhfw")
 
 [node name="Left" parent="Controls" instance=ExtResource("5_u0srt")]
 position = Vector2(0, -75)
@@ -51,3 +32,22 @@ position = Vector2(0, 25)
 
 [node name="Right" parent="Controls" instance=ExtResource("6_fwgii")]
 position = Vector2(0, 75)
+
+[node name="Minigame" type="Node2D" parent="."]
+script = ExtResource("2_mvri0")
+
+[node name="TimeBar" type="ProgressBar" parent="."]
+layout_mode = 0
+offset_left = 264.529
+offset_top = 530.394
+offset_right = 692.529
+offset_bottom = 603.394
+scale = Vector2(1.7629, 0.599667)
+show_percentage = false
+
+[node name="ScoreText" type="Label" parent="."]
+layout_mode = 0
+offset_left = 530.0
+offset_top = 480.0
+offset_right = 726.0
+offset_bottom = 520.0

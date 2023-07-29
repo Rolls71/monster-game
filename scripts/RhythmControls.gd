@@ -1,5 +1,7 @@
 extends Node2D
 
+signal rhythm_input
+
 const DIRECTIONS = ["up", "down", "left", "right"]
 var controls = []
 var is_key_down = 0
@@ -30,12 +32,14 @@ func _physics_process(delta):
 	else:
 		var chord = []
 		for direction in DIRECTIONS:
+			if controls[direction][1] == 0:
+				continue
 			chord.append(direction)
 			controls[direction][1] = 0
 			controls[direction][0].scale = Vector2(1, 1)
 		is_key_down = false
-		#connect signal from game
-		#emit_signal("rhythm_input", chord)
+		if len(chord) > 0:
+			rhythm_input.emit(chord)
 			
 func _unhandled_key_input(event):
 	for direction in DIRECTIONS:
