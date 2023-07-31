@@ -20,10 +20,10 @@ offset_bottom = 40.0
 
 [node name="PlayerCharacters" type="ItemList" parent="CombatUI"]
 layout_mode = 0
-offset_left = 98.0
-offset_top = 362.0
-offset_right = 312.0
-offset_bottom = 426.0
+offset_left = 142.0
+offset_top = 373.0
+offset_right = 356.0
+offset_bottom = 437.0
 item_count = 2
 item_0/text = "Ghost"
 item_1/text = "Fuzzball"
@@ -50,8 +50,8 @@ text = "FIGHT!"
 layout_mode = 0
 offset_left = 487.0
 offset_top = 298.0
-offset_right = 527.0
-offset_bottom = 321.0
+offset_right = 539.0
+offset_bottom = 324.0
 text = "Score: "
 
 [connection signal="item_activated" from="CombatUI/PlayerCharacters" to="." method="_on_player_characters_item_activated"]

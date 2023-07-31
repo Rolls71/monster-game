@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://dh16prvaf0gv"]
+
+[ext_resource type="Script" path="res://scripts/CharacterSpriteHandler.gd" id="1_umqnp"]
+[ext_resource type="Texture2D" uid="uid://ycfbqk6d177p" path="res://sprites/IMG_6974.PNG" id="2_pcx7w"]
+
+[node name="BooSprites" type="Node2D"]
+script = ExtResource("1_umqnp")
+
+[node name="Happy" type="Sprite2D" parent="."]
+texture = ExtResource("2_pcx7w")
+region_enabled = true
+region_rect = Rect2(128.112, 970.518, 377.715, 460.526)
+
+[node name="Mischievous" type="Sprite2D" parent="."]
+texture = ExtResource("2_pcx7w")
+region_enabled = true
+region_rect = Rect2(619.3, 973.904, 377.3, 461.696)
+
+[node name="Shocked" type="Sprite2D" parent="."]
+texture = ExtResource("2_pcx7w")
+region_enabled = true
+region_rect = Rect2(1033.03, 965.521, 397.797, 465.965)
+
+[node name="Sad" type="Sprite2D" parent="."]
+texture = ExtResource("2_pcx7w")
+region_enabled = true
+region_rect = Rect2(1473.7, 971.156, 380.886, 463.74)
