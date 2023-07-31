@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://yaahql8chx6q"]
+
+[ext_resource type="Script" path="res://scripts/CharacterSpriteHandler.gd" id="1_ejfnm"]
+[ext_resource type="Texture2D" uid="uid://cvwa4u0ulg0j" path="res://sprites/IMG_6970.PNG" id="2_dumrm"]
+
+[node name="RangerSprites" type="Node2D"]
+script = ExtResource("1_ejfnm")
+
+[node name="Ranger1" type="Sprite2D" parent="."]
+texture = ExtResource("2_dumrm")
+region_enabled = true
+region_rect = Rect2(1397.28, 387.103, 346.619, 600.851)
+
+[node name="Ranger2" type="Sprite2D" parent="."]
+texture = ExtResource("2_dumrm")
+region_enabled = true
+region_rect = Rect2(1846.52, 334.367, 318.797, 611.147)

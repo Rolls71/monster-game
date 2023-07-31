@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://b2af5jfmbq1vb"]
+
+[ext_resource type="Script" path="res://scripts/CharacterSpriteHandler.gd" id="1_motnt"]
+[ext_resource type="Texture2D" uid="uid://cvwa4u0ulg0j" path="res://sprites/IMG_6970.PNG" id="2_7hdq4"]
+
+[node name="MageSprites" type="Node2D"]
+script = ExtResource("1_motnt")
+
+[node name="Mage1" type="Sprite2D" parent="."]
+texture = ExtResource("2_7hdq4")
+region_enabled = true
+region_rect = Rect2(188.55, 2623.59, 382.318, 723.46)
+
+[node name="Mage2" type="Sprite2D" parent="."]
+texture = ExtResource("2_7hdq4")
+region_enabled = true
+region_rect = Rect2(577.766, 2614.86, 492.734, 721.84)

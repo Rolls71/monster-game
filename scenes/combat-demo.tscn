@@ -1,6 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://bqpnv3npabcfd"]
+[gd_scene load_steps=9 format=3 uid="uid://bqpnv3npabcfd"]
 
 [ext_resource type="Script" path="res://scripts/CombatDemo.gd" id="1_shc0v"]
+[ext_resource type="PackedScene" uid="uid://dh16prvaf0gv" path="res://scenes/characters/boo-sprites.tscn" id="2_c1ecr"]
+[ext_resource type="PackedScene" uid="uid://ptdcdijgmoj3" path="res://scenes/characters/clint-sprites.tscn" id="3_v6lnl"]
+[ext_resource type="PackedScene" uid="uid://qfbuk1leojyd" path="res://scenes/components/health-bar.tscn" id="3_wj3le"]
+[ext_resource type="PackedScene" uid="uid://dhkjl28vouw8v" path="res://scenes/characters/soup-sprites.tscn" id="4_elipt"]
+[ext_resource type="PackedScene" uid="uid://b2af5jfmbq1vb" path="res://scenes/characters/mage-sprites.tscn" id="6_3l35o"]
+[ext_resource type="PackedScene" uid="uid://4h8y7j7pe16h" path="res://scenes/characters/barbarian-sprites.tscn" id="7_fqbk6"]
+[ext_resource type="PackedScene" uid="uid://yaahql8chx6q" path="res://scenes/characters/ranger-sprites.tscn" id="8_kv2l1"]
 
 [node name="CombatDemo" type="Control"]
 layout_mode = 3
@@ -20,39 +27,100 @@ offset_bottom = 40.0
 
 [node name="PlayerCharacters" type="ItemList" parent="CombatUI"]
 layout_mode = 0
-offset_left = 142.0
-offset_top = 373.0
-offset_right = 356.0
-offset_bottom = 437.0
-item_count = 2
-item_0/text = "Ghost"
-item_1/text = "Fuzzball"
+offset_left = 159.0
+offset_top = 498.0
+offset_right = 373.0
+offset_bottom = 588.0
+item_count = 3
+item_0/text = "Boo"
+item_1/text = "Clint"
+item_2/text = "Soup"
 
 [node name="EnemyCharacters" type="ItemList" parent="CombatUI"]
 layout_mode = 0
-offset_left = 699.0
-offset_top = 363.0
-offset_right = 913.0
-offset_bottom = 427.0
-item_count = 2
+offset_left = 716.0
+offset_top = 488.0
+offset_right = 930.0
+offset_bottom = 578.0
+item_count = 3
 item_0/text = "Mage"
 item_1/text = "Barbarian"
+item_2/text = "Ranger"
 
 [node name="Fight" type="Button" parent="CombatUI"]
 layout_mode = 0
-offset_left = 512.0
-offset_top = 346.0
-offset_right = 571.0
-offset_bottom = 377.0
+offset_left = 529.0
+offset_top = 471.0
+offset_right = 588.0
+offset_bottom = 502.0
 text = "FIGHT!"
 
 [node name="Label" type="Label" parent="CombatUI"]
 layout_mode = 0
-offset_left = 487.0
-offset_top = 298.0
-offset_right = 539.0
-offset_bottom = 324.0
+offset_left = 504.0
+offset_top = 423.0
+offset_right = 556.0
+offset_bottom = 449.0
 text = "Score: "
+
+[node name="CombatDisplay" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Boo" type="Node2D" parent="CombatDisplay"]
+position = Vector2(175, 107)
+scale = Vector2(0.3, 0.3)
+
+[node name="BooSprites" parent="CombatDisplay/Boo" instance=ExtResource("2_c1ecr")]
+
+[node name="HealthBar" parent="CombatDisplay/Boo" instance=ExtResource("3_wj3le")]
+position = Vector2(-100, -276.667)
+
+[node name="Clint" type="Node2D" parent="CombatDisplay"]
+position = Vector2(308, 214)
+scale = Vector2(0.3, 0.3)
+
+[node name="ClintSprites" parent="CombatDisplay/Clint" instance=ExtResource("3_v6lnl")]
+
+[node name="HealthBar" parent="CombatDisplay/Clint" instance=ExtResource("3_wj3le")]
+position = Vector2(-100, -250)
+
+[node name="Soup" type="Node2D" parent="CombatDisplay"]
+position = Vector2(168, 292)
+scale = Vector2(0.35, 0.35)
+
+[node name="SoupSprites" parent="CombatDisplay/Soup" instance=ExtResource("4_elipt")]
+
+[node name="HealthBar" parent="CombatDisplay/Soup" instance=ExtResource("3_wj3le")]
+position = Vector2(-100, -185.714)
+
+[node name="Mage" type="Node2D" parent="CombatDisplay"]
+position = Vector2(896, 307)
+scale = Vector2(0.25, 0.25)
+
+[node name="MageSprites" parent="CombatDisplay/Mage" instance=ExtResource("6_3l35o")]
+
+[node name="HealthBar" parent="CombatDisplay/Mage" instance=ExtResource("3_wj3le")]
+position = Vector2(-100, -380)
+
+[node name="Barbarian" type="Node2D" parent="CombatDisplay"]
+position = Vector2(781, 193)
+scale = Vector2(0.25, 0.25)
+
+[node name="BarbarianSprites" parent="CombatDisplay/Barbarian" instance=ExtResource("7_fqbk6")]
+
+[node name="HealthBar" parent="CombatDisplay/Barbarian" instance=ExtResource("3_wj3le")]
+position = Vector2(-100, -364)
+
+[node name="Ranger" type="Node2D" parent="CombatDisplay"]
+position = Vector2(896, 109)
+scale = Vector2(0.25, 0.25)
+
+[node name="RangerSprites" parent="CombatDisplay/Ranger" instance=ExtResource("8_kv2l1")]
+
+[node name="HealthBar" parent="CombatDisplay/Ranger" instance=ExtResource("3_wj3le")]
+position = Vector2(-100, -332)
 
 [connection signal="item_activated" from="CombatUI/PlayerCharacters" to="." method="_on_player_characters_item_activated"]
 [connection signal="button_down" from="CombatUI/Fight" to="." method="_on_fight_button_down"]
