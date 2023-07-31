@@ -1,7 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://bqpnv3npabcfd"]
+[gd_scene load_steps=11 format=3 uid="uid://bqpnv3npabcfd"]
 
 [ext_resource type="Script" path="res://scripts/CombatDemo.gd" id="1_shc0v"]
 [ext_resource type="PackedScene" uid="uid://dh16prvaf0gv" path="res://scenes/characters/boo-sprites.tscn" id="2_c1ecr"]
+[ext_resource type="Script" path="res://CombatDisplay.gd" id="2_r7r6s"]
+[ext_resource type="Script" path="res://CharacterHandler.gd" id="3_dfm0t"]
 [ext_resource type="PackedScene" uid="uid://ptdcdijgmoj3" path="res://scenes/characters/clint-sprites.tscn" id="3_v6lnl"]
 [ext_resource type="PackedScene" uid="uid://qfbuk1leojyd" path="res://scenes/components/health-bar.tscn" id="3_wj3le"]
 [ext_resource type="PackedScene" uid="uid://dhkjl28vouw8v" path="res://scenes/characters/soup-sprites.tscn" id="4_elipt"]
@@ -25,7 +27,7 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="PlayerCharacters" type="ItemList" parent="CombatUI"]
+[node name="FriendCharacters" type="ItemList" parent="CombatUI"]
 layout_mode = 0
 offset_left = 159.0
 offset_top = 498.0
@@ -35,6 +37,7 @@ item_count = 3
 item_0/text = "Boo"
 item_1/text = "Clint"
 item_2/text = "Soup"
+item_2/disabled = true
 
 [node name="EnemyCharacters" type="ItemList" parent="CombatUI"]
 layout_mode = 0
@@ -67,12 +70,14 @@ text = "Score: "
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+script = ExtResource("2_r7r6s")
 
 [node name="Boo" type="Node2D" parent="CombatDisplay"]
 position = Vector2(175, 107)
 scale = Vector2(0.3, 0.3)
+script = ExtResource("3_dfm0t")
 
-[node name="BooSprites" parent="CombatDisplay/Boo" instance=ExtResource("2_c1ecr")]
+[node name="Sprites" parent="CombatDisplay/Boo" instance=ExtResource("2_c1ecr")]
 
 [node name="HealthBar" parent="CombatDisplay/Boo" instance=ExtResource("3_wj3le")]
 position = Vector2(-100, -276.667)
@@ -80,8 +85,9 @@ position = Vector2(-100, -276.667)
 [node name="Clint" type="Node2D" parent="CombatDisplay"]
 position = Vector2(308, 214)
 scale = Vector2(0.3, 0.3)
+script = ExtResource("3_dfm0t")
 
-[node name="ClintSprites" parent="CombatDisplay/Clint" instance=ExtResource("3_v6lnl")]
+[node name="Sprites" parent="CombatDisplay/Clint" instance=ExtResource("3_v6lnl")]
 
 [node name="HealthBar" parent="CombatDisplay/Clint" instance=ExtResource("3_wj3le")]
 position = Vector2(-100, -250)
@@ -89,8 +95,9 @@ position = Vector2(-100, -250)
 [node name="Soup" type="Node2D" parent="CombatDisplay"]
 position = Vector2(168, 292)
 scale = Vector2(0.35, 0.35)
+script = ExtResource("3_dfm0t")
 
-[node name="SoupSprites" parent="CombatDisplay/Soup" instance=ExtResource("4_elipt")]
+[node name="Sprites" parent="CombatDisplay/Soup" instance=ExtResource("4_elipt")]
 
 [node name="HealthBar" parent="CombatDisplay/Soup" instance=ExtResource("3_wj3le")]
 position = Vector2(-100, -185.714)
@@ -98,8 +105,9 @@ position = Vector2(-100, -185.714)
 [node name="Mage" type="Node2D" parent="CombatDisplay"]
 position = Vector2(896, 307)
 scale = Vector2(0.25, 0.25)
+script = ExtResource("3_dfm0t")
 
-[node name="MageSprites" parent="CombatDisplay/Mage" instance=ExtResource("6_3l35o")]
+[node name="Sprites" parent="CombatDisplay/Mage" instance=ExtResource("6_3l35o")]
 
 [node name="HealthBar" parent="CombatDisplay/Mage" instance=ExtResource("3_wj3le")]
 position = Vector2(-100, -380)
@@ -107,8 +115,9 @@ position = Vector2(-100, -380)
 [node name="Barbarian" type="Node2D" parent="CombatDisplay"]
 position = Vector2(781, 193)
 scale = Vector2(0.25, 0.25)
+script = ExtResource("3_dfm0t")
 
-[node name="BarbarianSprites" parent="CombatDisplay/Barbarian" instance=ExtResource("7_fqbk6")]
+[node name="Sprites" parent="CombatDisplay/Barbarian" instance=ExtResource("7_fqbk6")]
 
 [node name="HealthBar" parent="CombatDisplay/Barbarian" instance=ExtResource("3_wj3le")]
 position = Vector2(-100, -364)
@@ -116,11 +125,18 @@ position = Vector2(-100, -364)
 [node name="Ranger" type="Node2D" parent="CombatDisplay"]
 position = Vector2(896, 109)
 scale = Vector2(0.25, 0.25)
+script = ExtResource("3_dfm0t")
 
-[node name="RangerSprites" parent="CombatDisplay/Ranger" instance=ExtResource("8_kv2l1")]
+[node name="Sprites" parent="CombatDisplay/Ranger" instance=ExtResource("8_kv2l1")]
 
 [node name="HealthBar" parent="CombatDisplay/Ranger" instance=ExtResource("3_wj3le")]
 position = Vector2(-100, -332)
 
-[connection signal="item_activated" from="CombatUI/PlayerCharacters" to="." method="_on_player_characters_item_activated"]
+[node name="CombatMinigame" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[connection signal="item_activated" from="CombatUI/FriendCharacters" to="." method="_on_friend_characters_item_activated"]
+[connection signal="item_selected" from="CombatUI/EnemyCharacters" to="." method="_on_enemy_characters_item_selected"]
 [connection signal="button_down" from="CombatUI/Fight" to="." method="_on_fight_button_down"]

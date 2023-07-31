@@ -9,10 +9,10 @@ func get_health():
 	
 func modify_health(health_change):
 	var new_health = bar.value + health_change
-	if new_health >= 0 and new_health <= bar.max_value:
-		bar.value = health_change
-	elif new_health < 0:
-		bar.value = 0
+	if new_health >= bar.min_value and new_health <= bar.max_value:
+		bar.value = new_health
+	elif new_health < bar.min_value:
+		bar.value = bar.min_value
 	else:
 		bar.value = bar.max_value
 		
