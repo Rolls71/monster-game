@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://4h8y7j7pe16h"]
 
-[ext_resource type="Script" path="res://scripts/CharacterSpriteHandler.gd" id="1_3u1v8"]
-[ext_resource type="Texture2D" uid="uid://cvwa4u0ulg0j" path="res://sprites/IMG_6970.PNG" id="2_aqyn0"]
+[ext_resource type="Script" path="res://scripts/characters/CharacterSpriteHandler.gd" id="1_3u1v8"]
+[ext_resource type="Texture2D" uid="uid://cvwa4u0ulg0j" path="res://addons/sprites/IMG_6970.PNG" id="2_aqyn0"]
 
 [node name="BarbarianSprites" type="Node2D"]
 script = ExtResource("1_3u1v8")

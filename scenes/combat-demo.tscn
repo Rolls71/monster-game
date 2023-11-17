@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" path="res://scripts/CombatDemo.gd" id="1_shc0v"]
 [ext_resource type="PackedScene" uid="uid://dh16prvaf0gv" path="res://scenes/characters/boo-sprites.tscn" id="2_c1ecr"]
-[ext_resource type="Script" path="res://CombatDisplay.gd" id="2_r7r6s"]
-[ext_resource type="Script" path="res://CharacterHandler.gd" id="3_dfm0t"]
+[ext_resource type="Script" path="res://scripts/CombatDisplay.gd" id="2_r7r6s"]
+[ext_resource type="Script" path="res://scripts/CharacterHandler.gd" id="3_dfm0t"]
 [ext_resource type="PackedScene" uid="uid://ptdcdijgmoj3" path="res://scenes/characters/clint-sprites.tscn" id="3_v6lnl"]
-[ext_resource type="PackedScene" uid="uid://qfbuk1leojyd" path="res://scenes/components/health-bar.tscn" id="3_wj3le"]
+[ext_resource type="PackedScene" uid="uid://qfbuk1leojyd" path="res://scenes/ui_components/health-bar.tscn" id="3_wj3le"]
 [ext_resource type="PackedScene" uid="uid://dhkjl28vouw8v" path="res://scenes/characters/soup-sprites.tscn" id="4_elipt"]
 [ext_resource type="PackedScene" uid="uid://b2af5jfmbq1vb" path="res://scenes/characters/mage-sprites.tscn" id="6_3l35o"]
 [ext_resource type="PackedScene" uid="uid://4h8y7j7pe16h" path="res://scenes/characters/barbarian-sprites.tscn" id="7_fqbk6"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dhkjl28vouw8v"]
 
-[ext_resource type="Script" path="res://scripts/CharacterSpriteHandler.gd" id="1_n2b0r"]
-[ext_resource type="Texture2D" uid="uid://ycfbqk6d177p" path="res://sprites/IMG_6974.PNG" id="2_134ca"]
+[ext_resource type="Script" path="res://scripts/characters/CharacterSpriteHandler.gd" id="1_n2b0r"]
+[ext_resource type="Texture2D" uid="uid://ycfbqk6d177p" path="res://addons/sprites/IMG_6974.PNG" id="2_134ca"]
 
 [node name="SoupSprites" type="Node2D"]
 script = ExtResource("1_n2b0r")

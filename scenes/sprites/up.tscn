@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cfjnsdqd351ox"]
 
-[ext_resource type="Texture2D" uid="uid://nml0c4026qc6" path="res://sprites/#2 - Transparent Icons & Drop Shadow.png" id="1_kgj6d"]
+[ext_resource type="Texture2D" uid="uid://nml0c4026qc6" path="res://addons/sprites/#2 - Transparent Icons & Drop Shadow.png" id="1_kgj6d"]
 
 [node name="Up" type="Node2D"]
 

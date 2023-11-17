@@ -11,8 +11,8 @@ config_version=5
 [application]
 
 config/name="MonsterGame"
-run/main_scene="res://scenes/belt-game.tscn"
-config/features=PackedStringArray("4.0", "Forward Plus")
+run/main_scene="res://scenes/minigames/belt-game.tscn"
+config/features=PackedStringArray("4.1", "Forward Plus")
 
 [editor]
 
